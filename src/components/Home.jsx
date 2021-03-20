@@ -24,7 +24,10 @@ class Home extends Component {
           <div className="row row-cols-1 row-cols-md-3 g-4">
             {this.props.recommendations.map((recommendation) => (
               <div className="col">
-                <Recommender recommendation={recommendation} />
+                <Recommender
+                  recommendation={recommendation}
+                  history={this.props.history}
+                />
               </div>
             ))}
           </div>

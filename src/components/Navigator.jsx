@@ -53,7 +53,7 @@ export default class Navigator extends Component {
                 <a className="nav-link mx-3" href="/forums">
                   Forums
                 </a>
-                <a className="nav-link mx-3" href="#">
+                <a className="nav-link mx-3" href="/courses/435">
                   Discover New
                 </a>
               </div>

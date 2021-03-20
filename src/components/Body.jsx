@@ -9,6 +9,7 @@ import getPlans from "./data/Plans";
 import { Route, BrowserRouter } from "react-router-dom";
 import axios from "axios";
 import Registeration from "./Registeration";
+import Course from "./Course";
 
 const baseAPI = "http://localhost:8080/api/courses";
 
@@ -60,6 +61,7 @@ class Body extends Component {
               parent={this}
             ></Registeration>
           </Route>
+          <Route path="/courses" component={Course}></Route>
         </BrowserRouter>
       </div>
     );

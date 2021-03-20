@@ -73,4 +73,42 @@ app.post("/api/auth/", (req, res) => {
   res.send(newuser);
 });
 
+//api for global res..
+app.get("/api/course/", (req, res) => {
+  const course = {
+    id: faker.random.number(),
+    createdBy: faker.name.findName(),
+    name: faker.lorem.word(),
+    date: faker.date.recent().toUTCString(),
+    status: "Ongoing",
+    desc: faker.lorem.paragraph(),
+    resources: ["MIT OCW 312", "gfg"],
+    type: "",
+    fav_count: faker.random.number(),
+    diff: faker.random.float(),
+    interest: faker.random.number(),
+    dropped: faker.random.number(),
+    threads: posts[0],
+    dist: [
+      faker.random.number(),
+      faker.random.number(),
+      faker.random.number(),
+      faker.random.number(),
+    ],
+    diff_dist: 0,
+  };
+  res.send(course);
+});
+
+app.post("/api/auth/", (req, res) => {
+  const newuser = req.body;
+  users.push(newuser);
+  const token = random.alphaNumeric();
+  res
+    .header("x-auth-token", token)
+    .header("access-control-expose-headers", "x-auth-token");
+  console.log(newuser);
+  res.send(newuser);
+});
+
 app.listen(8080);
