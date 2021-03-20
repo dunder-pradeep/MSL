@@ -1,19 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Panel from "./components/Panel";
-import Navigator from "./components/Navigator";
-import Body from "./components/Body";
 import "bootstrap/dist/css/bootstrap.css";
 
+import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import App from "./App";
+import { ToastContainer } from "react-toastify";
 
 ReactDOM.render(
-  <React.Fragment>
-    <Navigator />
-    <Panel />
-    <Body />
-  </React.Fragment>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

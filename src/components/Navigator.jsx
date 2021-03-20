@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { Link } from "react-router-dom";
 
 export default class Navigator extends Component {
   state = {
@@ -23,9 +24,7 @@ export default class Navigator extends Component {
       <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3">
           <div className="container-fluid">
-            <a className="navbar-brand mx-3" href="#">
-              MSL
-            </a>
+            <a className="navbar-brand mx-3">MSL</a>
             <button
               className="navbar-toggler"
               type="button"
@@ -42,14 +41,16 @@ export default class Navigator extends Component {
                 <a
                   className="nav-link active mx-3"
                   aria-current="page"
-                  href="#"
+                  href="/home"
                 >
                   Home
                 </a>
-                <a className="nav-link mx-3" href="#">
+
+                <a className="nav-link mx-3" href="/profile">
                   Profile
                 </a>
-                <a className="nav-link mx-3" href="#">
+
+                <a className="nav-link mx-3" href="/forums">
                   Forums
                 </a>
                 <a className="nav-link mx-3" href="#">
@@ -58,7 +59,7 @@ export default class Navigator extends Component {
               </div>
             </div>
 
-            <div classNameName="" style={{ color: "white" }}>
+            <div className="" style={{ color: "white" }}>
               {" "}
               {this.state.time}{" "}
             </div>
