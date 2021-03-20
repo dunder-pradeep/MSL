@@ -1,21 +1,25 @@
 import React, { Component } from "react";
 import Timeline from "react-time-line";
+import AddResource from "./AddResource";
 
 class CourseStat extends Component {
-  state = { showTimeline: false };
+  state = { showTimeline: false, showUpdate: false };
 
   handleClick = () => {
-    this.setState({ showTimeline: !this.state.showTimeline });
+    this.setState({
+      showTimeline: !this.state.showTimeline,
+      showUpdate: false,
+    });
   };
 
   render() {
     const events = [
-      { ts: "2017-09-17T12:22:46.587Z", text: "R1" },
-      { ts: "2017-09-17T12:21:46.587Z", text: "R2" },
-      { ts: "2017-09-17T12:20:46.587Z", text: "ML" },
-      { ts: "2017-09-16T12:22:46.587Z", text: "git" },
-      { ts: "2017-09-16T12:21:46.587Z", text: "OS" },
-      { ts: "2017-09-16T12:20:46.587Z", text: "app" },
+      { ts: "2020-09-17T12:22:46.587Z", text: "R1" },
+      { ts: "2020-09-17T12:21:46.587Z", text: "R2" },
+      { ts: "2020-09-17T12:20:46.587Z", text: "ML" },
+      { ts: "2020-09-16T12:22:46.587Z", text: "git" },
+      { ts: "2020-09-16T12:21:46.587Z", text: "OS" },
+      { ts: "2020-09-16T12:20:46.587Z", text: "app" },
     ];
     return (
       <div class="card w-80 my-3 m-2">
@@ -33,13 +37,19 @@ class CourseStat extends Component {
                 <Timeline items={events} format="hh:mm a" />
               ) : null}
             </button>
-            <a
-              href="#"
+            <button
               class="btn btn-primary btn-dark m-2"
               style={{ position: "absolute" }}
+              onClick={() =>
+                this.setState({
+                  showUpdate: !this.state.showUpdate,
+                  showTimeline: false,
+                })
+              }
             >
               Update
-            </a>
+            </button>
+            {this.state.showUpdate ? <AddResource /> : null}
           </p>
         </div>
       </div>

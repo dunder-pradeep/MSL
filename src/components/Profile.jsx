@@ -6,14 +6,15 @@ class Profile extends Component {
   state = { followers: false, following: false };
 
   handleFollowers = () => {
-    console.log("it came here");
-    this.setState({ followers: true });
+    this.setState({ followers: !this.state.followers });
   };
 
   render() {
     return (
       <div className="col align-self-center mx-3">
-        <FollowModal onClick={this.handleFollowers} />
+        {this.state.followers ? (
+          <FollowModal onClick={this.handleFollowers} />
+        ) : null}
 
         <div className="row justify-content-between">
           <div className="col-6">
@@ -38,6 +39,7 @@ class Profile extends Component {
               className="btn btn-dark my-3"
               data-bs-toggle="modal"
               data-bs-target="#Followers"
+              onClick={this.handleFollowers}
             >
               Followers{" "}
               <span className="badge bg-secondary rounded-pill">9</span>

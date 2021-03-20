@@ -15,8 +15,10 @@ class Registeration extends Component {
 
     try {
       const resp = await axios.post(baseAPI, newusr);
-      this.props.history.push("/");
+      this.props.history.push("/home");
+
       toast.success(`Welcome ${newusr.username}`);
+      window.location.reload(); //yep this is fake ..
     } catch (e) {
       console.log(e);
       toast.error("Failed to register user!");
@@ -67,7 +69,7 @@ class Registeration extends Component {
             onChange={this.handleChange}
           />
           <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
+            Remember me
           </label>
         </div>
         <button type="submit" className="btn btn-primary">
